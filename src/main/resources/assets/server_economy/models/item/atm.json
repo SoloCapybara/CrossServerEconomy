@@ -1,0 +1,40 @@
+{
+  "parent": "server_economy:block/atm",
+  "display": {
+		"thirdperson_righthand": {
+			"rotation": [0, -180, 0],
+			"translation": [0, 3, 1],
+			"scale": [0.32, 0.32, 0.32]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [0, -180, 0],
+			"translation": [0, 3, 1],
+			"scale": [0.32, 0.32, 0.32]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, -180, 0],
+			"translation": [0, 3, 1],
+			"scale": [0.32, 0.32, 0.32]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, -180, 0],
+			"translation": [0, 3, 1],
+			"scale": [0.32, 0.32, 0.32]
+		},
+		"ground": {
+			"translation": [0, 5.5, 0]
+		},
+		"gui": {
+			"rotation": [14, -150, 0],
+			"translation": [1.25, -3, -80],
+			"scale": [0.54, 0.54, 0.54]
+		},
+		"head": {
+			"translation": [1.5, 19, 0] 
+		},
+		"fixed": {
+			"translation": [0, -3.5, -3.75],
+			"scale": [0.62, 0.62, 0.62]
+		}
+	}
+} 
