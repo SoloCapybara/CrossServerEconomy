@@ -11,6 +11,10 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import com.solocapybara.servereconomy.block.AtmBlock; // 导入新的 AtmBlock 类
+import net.minecraft.world.inventory.MenuType;
+import net.minecraftforge.common.extensions.IForgeMenuType;
+import com.solocapybara.servereconomy.world.inventory.AtmContainer;
 
 public class Registration {
 
@@ -24,7 +28,7 @@ public class Registration {
 
     // 注册您的ATM方块
     public static final RegistryObject<Block> ATM_BLOCK = BLOCKS.register("atm",
-            () -> new Block(Block.Properties.copy(Blocks.IRON_BLOCK))); // 使用铁块的属性作为例子
+            () -> new AtmBlock(Block.Properties.copy(Blocks.IRON_BLOCK))); // 使用我们自定义的 AtmBlock
 
     // 注册您的ATM方块对应的物品形式
     public static final RegistryObject<Item> ATM_ITEM = ITEMS.register("atm",
@@ -43,8 +47,17 @@ public class Registration {
             })
             .build());
 
+    // 注册容器类型
+    public static final DeferredRegister<MenuType<?>> MENUS =
+            DeferredRegister.create(ForgeRegistries.MENU_TYPES, MOD_ID);
+
+    public static final RegistryObject<MenuType<AtmContainer>> ATM_CONTAINER = MENUS.register("atm_container",
+            () -> IForgeMenuType.create((windowId, inv, extraData) -> new AtmContainer(windowId, inv, extraData)));
+
     public static void register(IEventBus eventBus) {
         BLOCKS.register(eventBus);
         ITEMS.register(eventBus);
+        CREATIVE_MODE_TABS.register(eventBus);
+        MENUS.register(eventBus); // 注册容器类型
     }
 } 
